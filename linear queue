@@ -1,0 +1,98 @@
+#include<stdio.h>
+int a[20],ch,wish=1;
+int data;
+int rear=-1, front=-1,N,i;
+void enqueue();
+void dequeue();
+void display();
+void main()
+{
+printf("enter the queue size:\n");
+scanf("%d",&N);
+do{
+
+printf("MENU\n1.enqueue\n2.dequeue\n3.display\n");
+printf("Enter your choice:\n");
+scanf("%d",&ch);
+switch(ch)
+{
+case 1:enqueue();
+break;
+
+case 2:dequeue();
+break;
+
+case 3:display();
+break;
+
+default:printf("Invalid choice");
+return;
+}
+printf("\nDo you wish to continue?");
+printf("\nenter 1 : yes\n2 : no\n");
+scanf("%d",&wish);
+
+}while(wish==1);
+}
+
+void enqueue()
+{
+
+if(rear==N-1)
+{
+printf("queue is full");
+}
+else
+{
+printf("enter element to be inserted:\n");
+scanf("%d",&data);
+rear=rear+1;
+a[rear]=data;
+
+}
+}
+
+
+void dequeue()
+{
+if(front==rear)
+{
+printf("queue empty\n");
+}
+else
+{
+
+
+if(front==rear)
+{
+front=-1;
+rear=-1;
+}
+else
+{
+front=front+1;
+data=a[front];
+}
+printf("the element deleted is %d",data);
+}
+display();
+}
+
+void display()
+{
+if(front==rear)
+{
+printf("queue empty\n");
+}
+else
+{
+i=front+1;
+printf("\nThe elements are:\n");
+while(i<=rear)
+{
+printf("%d\n",a[i]);
+i=i+1;
+
+}
+}
+}
