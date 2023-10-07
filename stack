@@ -1,0 +1,133 @@
+#include<stdio.h>
+int max=5;
+int top=-1;
+int stack[20];
+int i,ch,val,wish=1;
+void push();
+void Pop();
+void Peek();
+void isFull();
+void isEmpty();
+void display();
+
+void main()
+{
+do{
+printf("MENU\n1.Push\n2.Pop\n3.Peek\n4.isfull\n5.isempty\n6.display\n");
+printf("Enter your choice:\n");
+scanf("%d",&ch);
+switch(ch)
+{
+case 1:push();
+break;
+
+case 2:Pop();
+break;
+
+case 3:
+{
+    printf("heloo");
+    Peek();
+    printf("heloo");
+    break;   
+}
+
+
+case 4:isFull();
+break;
+
+case 5:isEmpty();
+break;
+
+case 6:display();
+break;
+
+default:printf("Invalid choice");
+return;
+}
+printf("\nDo you wish to continue?");
+printf("\nenter 1 : yes\n2 : no\n");
+scanf("%d",&wish);
+
+}while(wish==1);
+}
+
+void push()
+{
+if(top==max-1)
+printf("stack is full");
+else
+{
+printf("enter the element to be pushed:\n");
+scanf("%d",&val);
+top++;
+stack[top]=val;
+printf("The stack is\n");
+display();
+}
+}
+
+void Pop()
+{
+if(top==-1)
+printf("Stack empty");
+else
+{
+val=stack[top];
+top--;
+printf("the popped element is %d\n",val);
+printf("the stack is\n");
+display();
+
+}
+}
+
+void Peek()
+{
+printf("heloo");
+if(top!=-1)
+{
+printf(stack[top]);
+}
+}
+
+
+void isEmpty()
+{
+if(top==-1)
+printf("the stack is empty\n");
+else
+{
+printf("the stack is not empty\n");
+display();
+}
+
+}
+
+void isFull()
+{
+if(top==max-1)
+{
+printf("the stack is full and stack is\n");
+}
+else
+{
+printf("the stack is not full and stack is\n");
+}
+display();
+}
+
+void display()
+{
+if(top==-1)
+{
+printf("the stack is empty");
+}
+else
+{
+for(i=top;i>=0;i--)
+{
+printf("%d\t",stack[i]);
+}
+}
+}
