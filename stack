@@ -24,13 +24,8 @@ break;
 case 2:Pop();
 break;
 
-case 3:
-{
-    printf("heloo");
-    Peek();
-    printf("heloo");
-    break;   
-}
+case 3:Peek();
+break;
 
 
 case 4:isFull();
@@ -84,10 +79,11 @@ display();
 
 void Peek()
 {
-printf("heloo");
+
 if(top!=-1)
 {
-printf(stack[top]);
+printf("element is\n");
+printf("%d\n",stack[top]);
 }
 }
 
