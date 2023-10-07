@@ -1,0 +1,125 @@
+#include<stdio.h>
+int front=-1;
+int rear=-1;
+int N,item,del,ch,m,i;
+int p[25];
+void enqueue();
+void dequeue();
+void isEmpty();
+void isFull();
+void display();
+
+void main()
+{
+    printf("enter the limit of the queue:\n");
+    scanf("%d",&N);
+    do{
+        printf("MENU\n1.Enqueue\n2.Dequeue\n3.Isfull\n4.Isfull\n5.Display\n");
+        printf("enter any other key to exit..\n");
+        printf("Enter your choice:\n");
+        scanf("%d",&ch);
+        switch(ch)
+        {
+            case 1:enqueue();
+            break;
+            
+            case 2:dequeue();
+            break;
+            
+            case 3:isFull();
+            break;
+            
+            case 4:isEmpty();
+            break;
+            
+            case 5:display();
+            break;
+            
+            default:
+            printf("Invalid choice");
+            return;
+        }
+       printf("\nDo you wish to continue?\nYES-1\nNO-2\n");
+        scanf("%d",&m); 
+    }while(m==1);
+}
+
+void enqueue()
+{
+    if((rear+1)%N==front)
+    {
+        printf("queue full\n");
+    }
+    else
+    {
+        printf("enter the element to be inserted:\n");
+        scanf("%d",&item);
+        rear=(rear+1)%N;
+        p[rear]=item;
+        display();
+        
+    }
+}
+
+void dequeue()
+{
+    if(front==rear)
+    {
+        printf("queue is empty\n");
+    }
+    else
+    {
+        //printf("the deleted element is %d\n",del);
+        front=(front+1)%N;
+        del=p[front];
+        printf("the deleted element is %d\n",del);
+        display();
+    }
+    
+}
+
+void isEmpty()
+{
+    if(front==rear)
+    {
+        printf("the queue is empty\n");
+    }
+    else
+    {
+        printf("the queue is not empty\n");
+    }
+    display();
+}
+
+void isFull()
+{
+    if((rear+1)%N==front)
+    {
+        printf("queue is full");
+    }
+    else
+    {
+        printf("queue is not full");
+    }
+    display();
+}
+
+void display()
+{
+   if(front==rear)
+   {
+       printf("queue is empty");
+   }
+   else
+   {
+       printf("\nthe queue is:\n");
+       i=(front+1)%N;
+       while(i<=rear)
+       {
+           printf("%d\t",p[i]);
+           i=(i+1)%N;
+       }
+       
+       
+   }
+}
