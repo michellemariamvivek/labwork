@@ -1,0 +1,84 @@
+#include<stdio.h>
+void polyadd(int A[],int B[],int C[],int m,int n)
+{
+int p=1,q=1,r=1;
+while (p<=2*m && q<=2*n)
+{
+if (A[p]==B[q])
+{
+C[r+1]=A[p+1]+B[q+1];
+if (C[r+1]!=0)
+{
+C[r]=A[p];
+r=r+2;
+}
+p=p+2;
+q=q+2;
+}
+else if (A[p]<B[q])
+{
+C[r+1]=B[q+1];
+C[r]=B[q];
+q=q+2;
+r=r+2;
+}
+else
+{
+C[r+1]=A[p+1];
+C[r]=A[p];
+p=p+2;
+r=r+2;
+}}
+while (q<=2*n)
+{
+C[r]=B[q];
+C[r+1]=B[q+1];
+q=q+2;
+r=r+2;
+}
+C[0]=r/2;
+}
+int main()
+{
+int A[50],B[50],C[50],l=0;
+int m,n,c,k;
+printf("choice 1: to take values of polynomial\n choice 2: to sum and display\n");
+while(l==0)
+{
+printf("eneter the choice:");
+scanf("%d",&k);
+if (k==1)
+{
+printf("enter the no. of terms in polynomail 1:");
+scanf("%d",&m);
+printf("enter the values of polynomial 1 in array form:");
+for(int i=1;i<=2*m;i+=2)
+{
+scanf("%d%d",&A[i],&A[i+1]);
+}
+printf("enetr the no. of terms polynomial 2;");
+scanf("%d",&n);
+printf("eneter th values of polynomial 2 in array form:");
+for(int i=1;i<=2*n;i+=2)
+{
+scanf("%d%d",&B[i],&B[i+1]);
+}}
+else if(k==2)
+{
+polyadd(A,B,C,m,n);
+{
+for(int i=1;i<=C[0]*2;i+=2)
+{
+printf("%dx^%d",C[i+1],C[i]);
+if(i<C[0]*2-1)
+{
+printf("+");
+}
+}
+printf("\n");
+return 0;
+}}
+else
+{
+l+=1;
+}}}
