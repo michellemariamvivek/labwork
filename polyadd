@@ -45,20 +45,20 @@ int m,n,c,k;
 printf("choice 1: to take values of polynomial\n choice 2: to sum and display\n");
 while(l==0)
 {
-printf("eneter the choice:");
+printf("enter the choice:");
 scanf("%d",&k);
 if (k==1)
 {
-printf("enter the no. of terms in polynomail 1:");
+printf("enter the no. of terms in polynomial 1:");
 scanf("%d",&m);
 printf("enter the values of polynomial 1 in array form:");
 for(int i=1;i<=2*m;i+=2)
 {
 scanf("%d%d",&A[i],&A[i+1]);
 }
-printf("enetr the no. of terms polynomial 2;");
+printf("enter the no. of terms polynomial 2;");
 scanf("%d",&n);
-printf("eneter th values of polynomial 2 in array form:");
+printf("enter the values of polynomial 2 in array form:");
 for(int i=1;i<=2*n;i+=2)
 {
 scanf("%d%d",&B[i],&B[i+1]);
